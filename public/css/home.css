@@ -1,0 +1,17 @@
+body {
+	background-color: rgb(235,235,235);
+	overflow: hidden; 
+}
+
+.main-content{
+	min-height: 500px;
+	position: relative;
+}
+
+.sidebar{
+	position: relative;
+	top: -50px;
+	right: -30px;
+	margin-bottom: -5000px; /* any large number will do */
+  	padding-bottom: 5000px; 
+}
