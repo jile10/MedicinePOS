@@ -14,7 +14,6 @@
             <!-- Navbar Brand --><a href="index.html" class="navbar-brand">
               <div class="brand-text brand-big"><span>Medicine</span><strong>POS</strong></div>
               <div class="brand-text brand-small"><strong>BD</strong></div></a>
-            <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
           </div>
           <!-- Navbar Menu -->
           <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">

@@ -61,9 +61,9 @@
 				                          		<th width="20%">Name</th>
 				                          		<th width="20%">Category</th>
 				                          		<th width="17%">Type</th>
-				                          		<th width="10%">Stocks</th>
+				                          		<th width="8%">Stocks</th>
 				                          		<th width="10%" class="text-right">Price</th>
-				                          		<th width="15%">Actions</th>
+				                          		<th width="17%">Actions</th>
 					                        </tr>	
 				                        </thead>
 				                        <tbody>
@@ -71,7 +71,11 @@
 				                        	<tr>
 				                        		<td><img src="/images/{{$item->image}}" width="50px" height="50px"></td>
 				                        		<td>{{$item->name}}</td>
+				                        		@if($item->itemcategory)
 				                        		<td>{{$item->itemcategory->name}}</td>
+				                        		@else
+				                        		<td></td>
+				                        		@endif
 				                        		<td>{{$item->itemtype->name}}</td>
 				                        		<td>{{$item->stocks}}</td>
 				                        		<td class="text-right">{{$item->new_price}}</td>

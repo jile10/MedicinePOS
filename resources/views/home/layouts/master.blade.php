@@ -53,12 +53,24 @@
     <script src="/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/b-1.5.1/datatables.min.js"></script>
     <script src="/js/fileinput.js"></script>
+    <script src="/js/jquery.twbsPagination.js"></script>
     <!-- Main File-->
     <script src="/js/front.js"></script>
     <script type="text/javascript">
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
       })
+      $(document).scroll(function() {
+        console.log($(this).scrollTop())
+          if( $(this).scrollTop() >= 70 ) 
+          {
+            $('.sidebar').css({top:0});
+          }
+          else
+          {
+            $('.sidebar').css({top:'70px'});
+          }
+      });
     </script>
     @yield('js')
   </body>
