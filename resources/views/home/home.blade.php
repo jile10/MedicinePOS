@@ -15,10 +15,9 @@
 							  	<img class="card-img-top" src="/images/{{$item->image}}" alt="Card image cap">
 							  	<div class="card-block">
 							    	<p class="card-text text-center">{{$item->name}}</p>
-							    <p><button class="btn btn-sm btn-info btn-block"><i class="fa fa-cart-plus"></i></button></p>
+							    <p class="col-md-12"><button onclick="addCart({{$item}})" class="btn btn-sm btn-info btn-block" title="add to cart"><i class="fa fa-cart-plus"></i></button></p>
 							  </div>
 							</div>
-                			
                 		</div>
 						@endforeach
                 	</div>
@@ -32,11 +31,16 @@
                 </div>
                 <div class="card-body">
                 	<div class="row">
-                		
+                		<div class="col-md-12">
+                            
+                        </div>
                 	</div>
                 </div>
            	</div>
 		</section>
 	</div>
 </div>
+@endsection
+@section('js')
+<script type="text/javascript" src="/pages/home/app.js"></script>
 @endsection
