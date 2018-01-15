@@ -1,0 +1,59 @@
+
+                		@if(count($items)>8)
+                			@for($x=0; $x < ((int)count($items)/8) ; $x++)
+	            				<div class="page{{$x+1}} col-md-12 row tago">
+	                				@for($y=$x * 8; $y < ($x+1)*8; $y++)
+	                					@if($y <= count($items)-1)
+	                					<div class="col-md-3">
+										 	<div class="card">
+											  	<img class="card-img-top" src="/images/{{$items[$y]->image}}" alt="Card image cap">
+											  	<div class="card-block">
+											    	<p class="card-text text-center">{{$items[$y]->name}}<br> <small class="text-muted">&#8369; {{$items[$y]->new_price}}</small></p>
+											    @if($items[$y]->stocks > 0)
+											    <p class="col-md-12"><button id="but{{$items[$y]->id}}" onclick="addCart({{$items[$y]}},this)" class="btn btn-sm btn-info btn-block" title="add to cart"><i class="fa fa-cart-plus"></i></button></p>
+											    @else
+											    <p class="col-md-12"><button class="btn btn-sm btn-danger btn-block disabled" title="add to cart">Out of stock</button></p>
+											    @endif
+											  </div>
+											</div>
+				                		</div>
+				                		@endif
+	                				@endfor
+	            				</div>
+	            			@endfor
+                		@else
+                		@foreach($items as $item)
+                		<div class="col-md-3">
+						 	<div class="card">
+							  	<img class="card-img-top" src="/images/{{$item->image}}" alt="Card image cap">
+							  	<div class="card-block">
+							    	<p class="card-text text-center">{{$item->name}}<br> <small class="text-muted">&#8369; {{$item->new_price}}</small></p>
+							    @if($item->stocks > 0 )
+							    <p class="col-md-12"><button id="but{{$item->id}}" onclick="addCart({{$item}},this)" class="btn btn-sm btn-info btn-block" title="add to cart"><i class="fa fa-cart-plus"></i></button></p>
+							    @else
+							    <p class="col-md-12"><button class="btn btn-sm btn-danger btn-block disabled" title="add to cart">Out of stock</button></p>
+							    @endif
+							  </div>
+							</div>
+                		</div>
+						@endforeach
+						@endif
+
+						var totalPage = {{(int)count($items)/8}};
+						var prevPage =0;
+						@if(count($items)%8 != 0)
+							totalPage++;
+						@endif
+						$(function () {
+					        var obj = $('#pagination').twbsPaginatsion({
+					            totalPages: totalPage,
+					            visiblePages: 5,
+					            onPageClick: function (event, page) {
+									$('.page'+page).removeClass('tago');
+									$('.page'+prevPage).addClass('tago');
+					            	prevPage = page;
+
+					            }
+					        });
+					        console.info(obj.data());
+					    });

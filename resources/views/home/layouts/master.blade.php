@@ -61,7 +61,6 @@
         $('[data-toggle="tooltip"]').tooltip()
       })
       $(document).scroll(function() {
-        console.log($(this).scrollTop())
           if( $(this).scrollTop() >= 70 ) 
           {
             $('.sidebar').css({top:0});
